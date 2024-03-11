@@ -1,0 +1,22 @@
+<h1> SHADEXLOL, thoughs, things, and stuff</h1>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <%= link_to "New Post", new_blog_post_path, class:"button-style bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+
+    <div style="display: flex; gap: 10px;">
+        <%= link_to "Login", new_user_session_path, class:"button-style bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure?"}, class:"button-style bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"%>
+    </div>
+</div>
+
+
+
+
+
+<% @blog_posts.each do |blog_post| %>
+    <div>
+        <h2><%= link_to blog_post.title, blog_post %></h2>
+        <p><%= blog_post.body.truncate(200) %></p>
+    </div>
+
+<% end %>
